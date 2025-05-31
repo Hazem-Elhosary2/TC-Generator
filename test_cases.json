@@ -1,50 +1,24 @@
 [
     {
         "id": 1,
-        "title": "Verify addition of Contact Officers list for Hajj Affairs Offices based on provided Excel sheet",
+        "title": "Verify Page Loads Correctly",
         "steps": [
             {
-                "step": "Access the platform and navigate to the Contact Officers section for Hajj Affairs Offices",
-                "expected": "Contact Officers list is not available as per the provided Excel sheet"
+                "step": "Open the webpage",
+                "expected": "Page loads successfully"
             }
         ],
-        "expected_result": "Contact Officers list for Hajj Affairs Offices should be added based on the provided Excel sheet",
-        "story_id": "61196"
+        "expected_result": "Verify that the webpage loads correctly without any errors"
     },
     {
         "id": 2,
-        "title": "Verify platform name display issue when switching to English language",
+        "title": "Verify Data Entry Functionality",
         "steps": [
             {
-                "step": "Change the platform language to English",
-                "expected": "Platform name displays as 'Creative Awards' instead of 'Labbitom Award'"
+                "step": "Enter valid data into the input field",
+                "expected": "Data is accepted"
             }
         ],
-        "expected_result": "Platform name should display correctly as 'Labbitom Award' when in English language",
-        "story_id": "61196"
-    },
-    {
-        "id": 3,
-        "title": "Verify accessibility of contact link for Hajj companies outside the Kingdom",
-        "steps": [
-            {
-                "step": "Check if the contact link is available for Hajj companies outside the Kingdom",
-                "expected": "Contact link should be accessible for Hajj companies outside the Kingdom"
-            }
-        ],
-        "expected_result": "Contact link should be accessible for Hajj companies outside the Kingdom",
-        "story_id": "61196"
-    },
-    {
-        "id": 4,
-        "title": "Verify addition of contact numbers related to country code for Contact Officers",
-        "steps": [
-            {
-                "step": "Find the option to add contact numbers and country code for Contact Officers",
-                "expected": "Ability to add contact numbers with country code should be present for Contact Officers"
-            }
-        ],
-        "expected_result": "Users should be able to add contact numbers with respective country codes for Contact Officers",
-        "story_id": "61196"
+        "expected_result": "Ensure that valid data can be successfully entered into the input field"
     }
 ]

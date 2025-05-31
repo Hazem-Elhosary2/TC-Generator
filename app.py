@@ -10,6 +10,7 @@ import pandas as pd
 from io import BytesIO
 import time
 import xml.etree.ElementTree as ET
+from datetime import datetime  # استيراد datetime
 
 load_dotenv()
 app = Flask(__name__)
@@ -282,34 +283,15 @@ def index():
 def generate():
     story_id = request.form.get("story_id")
     story = get_user_story_details(story_id)
-    
     if story and "Could not fetch" not in story["description"]:
-        if story["description"] and story["acceptance"]:
-            test_cases = generate_test_cases_with_openai(story["description"], story["acceptance"])
-        else:
-            test_cases = []
-            print("Error: Description or acceptance criteria is empty or invalid.")
-        
-        for tc in test_cases:
-            print(f"Test Case: {tc}")  # Debugging
-            tc["story_id"] = story_id
-            if "expected_result" not in tc:
-                tc["expected_result"] = "No expected result provided"
-            
-            test_case_id = create_test_case_initial(story_id, tc["title"], tc["expected_result"])
-            if test_case_id:
-                update_test_case_steps(test_case_id, tc["steps"], tc["expected_result"])
-                link_test_case_to_user_story(story_id, test_case_id)
-                time.sleep(1)
-        
+        test_cases = generate_test_cases_with_openai(story["description"], story["acceptance"])
         save_test_cases(test_cases)
 
-        # تحديث الهيستوري
-        story_title = story.get("title", "")
+        # تحديث الهيستوري فقط
         history = load_test_cases_history()
         history.append({
             "story_id": story_id,
-            "story_title": story_title,
+            "story_title": story["title"],
             "created_at": time.strftime("%Y-%m-%d %H:%M"),
             "test_cases": [
                 dict(tc, generated=True) for tc in test_cases
@@ -319,7 +301,7 @@ def generate():
 
         return jsonify({"status": "success", "test_cases": test_cases})
     else:
-        return jsonify({"status": "error", "message": "Error fetching user story or missing description/acceptance."})
+        return jsonify({"status": "error", "message": "Failed to generate test cases"})
 
 @app.route("/update_test_case", methods=["POST"])
 def update_test_case():
@@ -782,6 +764,66 @@ def get_parent_work_item(work_item_id, project, parent_type):
             if parent_data.get("parent_type") == parent_type:
                 return parent_data
     return None
+
+@app.route("/dashboard", methods=["GET"])
+def dashboard():
+    test_cases = load_test_cases()
+    history = load_test_cases_history()
+
+    # إضافة بيانات تجريبية إذا كانت فارغة
+    if not test_cases:
+        test_cases = [
+            {
+                "id": 1,
+                "story_id": "123",
+                "title": "Test Case 1",
+                "steps": [{"step": "Open the page", "expected": "Page opens successfully"}],
+                "expected_result": "Expected result for the test case",
+                "status": "generated",
+                "linked_to_azure": True,
+                "created_at": datetime.now().strftime("%Y-%m-%d")
+            }
+        ]
+    if not history:
+        history = [
+            {
+                "story_id": "123",
+                "story_title": "User Story 1",
+                "created_at": datetime.now().strftime("%Y-%m-%d"),
+                "test_cases": [{"id": 1, "title": "Test Case 1", "status": "generated"}]
+            }
+        ]
+
+    # حساب الإحصائيات
+    today_generated_count = sum(1 for tc in test_cases if tc.get("created_at") == datetime.now().strftime("%Y-%m-%d"))
+    linked_count = sum(1 for tc in test_cases if tc.get("linked_to_azure"))
+    failed_count = sum(1 for tc in test_cases if tc.get("status") == "failed")
+    user_stories_processed = len(set(tc["story_id"] for tc in test_cases if "story_id" in tc))
+    manually_edited_count = sum(1 for tc in test_cases if tc.get("status") == "edited")
+
+    # بيانات الرسوم البيانية
+    daily_labels = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"]
+    daily_data = [5, 10, 15, 20, 25]  # مثال
+    status_data = [50, 30, 20]  # مثال
+
+    return render_template(
+        "dashboard.html",
+        today_generated_count=today_generated_count,
+        linked_count=linked_count,
+        failed_count=failed_count,
+        user_stories_processed=user_stories_processed,
+        manually_edited_count=manually_edited_count,
+        daily_labels=daily_labels,
+        daily_data=daily_data,
+        status_data=status_data,
+        history=history,
+    )
+
+def calculate_coverage(test_cases, backlog_items):
+    covered_items = set(tc['story_id'] for tc in test_cases if 'story_id' in tc and tc.get('linked_to_azure', False))
+    total_items = len(backlog_items)
+    coverage = len(covered_items) / total_items * 100 if total_items > 0 else 0
+    return coverage
 
 if __name__ == "__main__":
     app.run(debug=True)

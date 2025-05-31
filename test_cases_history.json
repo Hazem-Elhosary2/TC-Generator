@@ -4397,5 +4397,229 @@
                 "generated": true
             }
         ]
+    },
+    {
+        "story_id": "31111",
+        "story_title": "Size the Epics",
+        "created_at": "2025-05-31 17:24",
+        "test_cases": [
+            {
+                "id": 1,
+                "title": "Verify Page Loading",
+                "steps": [
+                    {
+                        "step": "Open the page",
+                        "expected": "Page opens successfully"
+                    }
+                ],
+                "expected_result": "The page should load without errors",
+                "generated": true
+            },
+            {
+                "id": 2,
+                "title": "Verify Data Entry",
+                "steps": [
+                    {
+                        "step": "Enter data",
+                        "expected": "Data is accepted"
+                    }
+                ],
+                "expected_result": "The system should accept the entered data",
+                "generated": true
+            }
+        ]
+    },
+    {
+        "story_id": "62758",
+        "story_title": "تعديل المحتوى",
+        "created_at": "2025-05-31 17:48",
+        "test_cases": [
+            {
+                "id": 1,
+                "title": "Verify deletion of Engineer Ghazi Bin Zafar Al-Shahrani from main session of Hajj Seminar page",
+                "steps": [
+                    {
+                        "step": "Navigate to the main session of Hajj Seminar page",
+                        "expected": "Page loads successfully"
+                    },
+                    {
+                        "step": "Locate Engineer Ghazi Bin Zafar Al-Shahrani's information",
+                        "expected": "Information is found"
+                    },
+                    {
+                        "step": "Delete Engineer Ghazi Bin Zafar Al-Shahrani's details",
+                        "expected": "Information is removed successfully"
+                    }
+                ],
+                "expected_result": "Engineer Ghazi Bin Zafar Al-Shahrani is no longer displayed in the main session of Hajj Seminar page",
+                "generated": true
+            },
+            {
+                "id": 2,
+                "title": "Verify time modification for Welcome and Reception in Grand Hajj Seminar agenda",
+                "steps": [
+                    {
+                        "step": "Access the agenda of Grand Hajj Seminar page",
+                        "expected": "Agenda is accessible"
+                    },
+                    {
+                        "step": "Find the Welcome and Reception section",
+                        "expected": "Section is located"
+                    },
+                    {
+                        "step": "Update the time to (8:30 – 9:00)",
+                        "expected": "Time is changed successfully"
+                    }
+                ],
+                "expected_result": "Time for Welcome and Reception is now (8:30 – 9:00) in the agenda of Grand Hajj Seminar",
+                "generated": true
+            },
+            {
+                "id": 3,
+                "title": "Verify integration of HRH Prince Faisal bin Salman Al Saud's speech with launching of Hajj and the Two Holy Mosques History Forum",
+                "steps": [
+                    {
+                        "step": "Check HRH Prince Faisal bin Salman Al Saud's speech",
+                        "expected": "Speech is reviewed"
+                    },
+                    {
+                        "step": "Merge speech with launching of Hajj and the Two Holy Mosques History Forum",
+                        "expected": "Integration is successful"
+                    }
+                ],
+                "expected_result": "HRH Prince Faisal bin Salman Al Saud's speech is now part of the launching of Hajj and the Two Holy Mosques History Forum",
+                "generated": true
+            },
+            {
+                "id": 4,
+                "title": "Verify time adjustment for 'Facilitating Rituals and Enabling Pilgrims' session in Grand Hajj Seminar agenda",
+                "steps": [
+                    {
+                        "step": "Navigate to the agenda of Grand Hajj Seminar page",
+                        "expected": "Agenda is accessible"
+                    },
+                    {
+                        "step": "Locate 'Facilitating Rituals and Enabling Pilgrims' session",
+                        "expected": "Session is found"
+                    },
+                    {
+                        "step": "Change the time to (10:30 – 11:15)",
+                        "expected": "Time is updated successfully"
+                    }
+                ],
+                "expected_result": "'Facilitating Rituals and Enabling Pilgrims' session now runs from 10:30 to 11:15 in the Grand Hajj Seminar agenda",
+                "generated": true
+            },
+            {
+                "id": 5,
+                "title": "Verify relocation of HE Dr. Abdul Fattah bin Suleiman Mashat's session before private workshops",
+                "steps": [
+                    {
+                        "step": "Check the placement of HE Dr. Abdul Fattah bin Suleiman Mashat's session",
+                        "expected": "Session location is noted"
+                    },
+                    {
+                        "step": "Move the session before private workshops",
+                        "expected": "Session is relocated successfully"
+                    }
+                ],
+                "expected_result": "HE Dr. Abdul Fattah bin Suleiman Mashat's session is now positioned before private workshops",
+                "generated": true
+            },
+            {
+                "id": 6,
+                "title": "Verify title modification for 'Creating a Global Narrative for Hajj' session",
+                "steps": [
+                    {
+                        "step": "Find the 'Creating a Global Narrative for Hajj' session",
+                        "expected": "Session is located"
+                    },
+                    {
+                        "step": "Change the title to 'Closed Session'",
+                        "expected": "Title is updated successfully"
+                    }
+                ],
+                "expected_result": "'Creating a Global Narrative for Hajj' session is now titled 'Closed Session'",
+                "generated": true
+            },
+            {
+                "id": 7,
+                "title": "Verify change of 'Lunch Break' to 'Dhuhr Prayer Break'",
+                "steps": [
+                    {
+                        "step": "Locate the 'Lunch Break' section",
+                        "expected": "Section is found"
+                    },
+                    {
+                        "step": "Update the title to 'Dhuhr Prayer Break'",
+                        "expected": "Title is modified successfully"
+                    }
+                ],
+                "expected_result": "'Lunch Break' is now labeled as 'Dhuhr Prayer Break'",
+                "generated": true
+            }
+        ]
+    },
+    {
+        "story_id": "31111",
+        "story_title": "Size the Epics",
+        "created_at": "2025-05-31 17:51",
+        "test_cases": [
+            {
+                "id": 1,
+                "title": "Verify Page Loads Correctly",
+                "steps": [
+                    {
+                        "step": "Open the webpage",
+                        "expected": "Webpage loads successfully"
+                    }
+                ],
+                "expected_result": "The page should display without any errors",
+                "generated": true
+            },
+            {
+                "id": 2,
+                "title": "Verify Data Entry Functionality",
+                "steps": [
+                    {
+                        "step": "Enter valid data into the form",
+                        "expected": "Data is saved successfully"
+                    }
+                ],
+                "expected_result": "The entered data should be stored correctly",
+                "generated": true
+            }
+        ]
+    },
+    {
+        "story_id": "31111",
+        "story_title": "Size the Epics",
+        "created_at": "2025-05-31 17:52",
+        "test_cases": [
+            {
+                "id": 1,
+                "title": "Verify Page Loads Correctly",
+                "steps": [
+                    {
+                        "step": "Open the webpage",
+                        "expected": "Page loads successfully"
+                    }
+                ],
+                "expected_result": "Verify that the webpage loads correctly without any errors",
+                "generated": true
+            },
+            {
+                "id": 2,
+                "title": "Verify Data Entry Functionality",
+                "steps": [
+                    {
+                        "step": "Enter valid data into the input field",
+                        "expected": "Data is accepted"
+                    }
+                ],
+                "expected_result": "Ensure that valid data can be successfully entered into the input field",
+                "generated": true
+            }
+        ]
     }
 ]

@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="/static/styles.css" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  </head>
+  <body>
+    <h1>Dashboard</h1>
+
+    <!-- 🔢 Counters Row -->
+    <div class="counters-row">
+      <div class="counter-box">
+        <span class="counter-num">{{ today_generated_count }}</span>
+        <span class="counter-label">Test Cases Generated Today</span>
+      </div>
+      <div class="counter-box">
+        <span class="counter-num">{{ linked_count }}</span>
+        <span class="counter-label">Successfully Linked</span>
+      </div>
+      <div class="counter-box">
+        <span class="counter-num">{{ failed_count }}</span>
+        <span class="counter-label">Failed Generations</span>
+      </div>
+      <div class="counter-box">
+        <span class="counter-num">{{ user_stories_processed }}</span>
+        <span class="counter-label">User Stories Processed</span>
+      </div>
+      <div class="counter-box">
+        <span class="counter-num">{{ manually_edited_count }}</span>
+        <span class="counter-label">Manually Edited Test Cases</span>
+      </div>
+    </div>
+
+    <!-- 📈 Charts Section -->
+    <div class="charts-section">
+      <canvas id="dailyGenerationChart"></canvas>
+      <canvas id="statusDistributionChart"></canvas>
+    </div>
+
+    <!-- 🧪 Recent Test Cases Table -->
+    <div class="recent-activity">
+      <h2>Recent Test Cases</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>User Story ID</th>
+            <th>Title</th>
+            <th>Test Cases Count</th>
+            <th>Status</th>
+            <th>Generation Time</th>
+            <th>Link Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for tc in recent_test_cases %}
+          <tr>
+            <td>{{ tc.story_id }}</td>
+            <td>{{ tc.title }}</td>
+            <td>{{ tc.test_cases_count }}</td>
+            <td>{{ tc.status }}</td>
+            <td>{{ tc.generation_time }}</td>
+            <td>{{ tc.link_status }}</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+
+    <!-- 🧠 AI Generator Status -->
+    <div class="status-section">
+      <h2>AI Generator Status</h2>
+      <p>ChatGPT Connection: {{ chatgpt_status }}</p>
+      <p>Last Response Time: {{ chatgpt_response_time }} ms</p>
+      <button onclick="reconnectAI()">Reconnect AI</button>
+    </div>
+
+    <!-- 🔗 Azure DevOps Status -->
+    <div class="status-section">
+      <h2>Azure DevOps Status</h2>
+      <p>Connection Status: {{ azure_status }}</p>
+      <p>Last Sync Time: {{ azure_last_sync }}</p>
+      <p>Current Project: {{ azure_project }}</p>
+      {% if azure_error %}
+      <p class="error">Error: {{ azure_error }}</p>
+      {% endif %}
+    </div>
+
+    <!-- 📤 Quick Generate Button -->
+    <div class="quick-generate">
+      <h2>Quick Generate</h2>
+      <form method="POST" action="/generate">
+        <input type="text" name="story_id" placeholder="Enter User Story ID" required />
+        <button type="submit">Generate Test Cases</button>
+      </form>
+    </div>
+
+    <!-- 📄 Quick Reports -->
+    <div class="quick-reports">
+      <h2>Quick Reports</h2>
+      <ul>
+        <li><a href="/report/failures">Failed Generations Report</a></li>
+        <li><a href="/report/unlinked">Unlinked Test Cases Report</a></li>
+        <li><a href="/report/coverage">User Stories Coverage Report</a></li>
+      </ul>
+    </div>
+
+    <script>
+      // رسم بياني: التوليد اليومي
+      const dailyCtx = document.getElementById('dailyGenerationChart').getContext('2d');
+      const dailyGenerationChart = new Chart(dailyCtx, {
+        type: 'line',
+        data: {
+          labels: {{ daily_labels }},
+          datasets: [{
+            label: 'Daily Test Case Generation',
+            data: {{ daily_data }},
+            borderColor: '#0078d4',
+            backgroundColor: 'rgba(0, 120, 212, 0.2)',
+          }]
+        }
+      });
+
+      // رسم بياني: توزيع الحالات
+      const statusCtx = document.getElementById('statusDistributionChart').getContext('2d');
+      const statusDistributionChart = new Chart(statusCtx, {
+        type: 'bar',
+        data: {
+          labels: ['Generated', 'Linked', 'Failed'],
+          datasets: [{
+            label: 'Test Case Status Distribution',
+            data: {{ status_data }},
+            backgroundColor: ['#d4edda', '#0078d4', '#f8d7da']
+          }]
+        }
+      });
+
+      // وظيفة إعادة الاتصال بـ ChatGPT
+      function reconnectAI() {
+        alert('Reconnecting to AI...');
+        // تنفيذ عملية إعادة الاتصال
+      }
+    </script>
+  </body>
+</html>
