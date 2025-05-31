@@ -1,0 +1,3 @@
+# Ignore test cases files
+test_cases.json
+test_cases_history.json

@@ -4397,5 +4397,38 @@
                 "generated": true
             }
         ]
+    },
+    {
+        "story_id": "31111",
+        "story_title": "Size the Epics",
+        "created_at": "2025-05-31 18:01",
+        "test_cases": [
+            {
+                "id": 1,
+                "title": "Verify Page Loading",
+                "steps": [
+                    {
+                        "step": "Open the page",
+                        "expected": "Page opens successfully"
+                    }
+                ],
+                "expected_result": "The page should load without errors",
+                "story_id": "31111",
+                "generated": true
+            },
+            {
+                "id": 2,
+                "title": "Verify Data Entry Functionality",
+                "steps": [
+                    {
+                        "step": "Enter data",
+                        "expected": "Data is accepted"
+                    }
+                ],
+                "expected_result": "Data should be successfully entered and saved",
+                "story_id": "31111",
+                "generated": true
+            }
+        ]
     }
 ]
