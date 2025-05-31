@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Azure Work Items</title>
+    <script>
+        async function fetchData(url) {
+            const response = await fetch(url);
+            return response.json();
+        }
+
+        async function loadProjects() {
+            const projects = await fetchData("/api/projects");
+            const projectSelect = document.getElementById("projectSelect");
+            projectSelect.innerHTML = '<option value="">Select a Project</option>';
+            projects.forEach(project => {
+                const option = document.createElement("option");
+                option.value = project.id;
+                option.textContent = project.name;
+                projectSelect.appendChild(option);
+            });
+        }
+
+        async function loadEpics(projectId) {
+            const epics = await fetchData(`/api/epics/${projectId}`);
+            const epicSelect = document.getElementById("epicSelect");
+            epicSelect.innerHTML = '<option value="">Select an Epic</option>';
+            epics.forEach(epic => {
+                const option = document.createElement("option");
+                option.value = epic.id;
+                option.textContent = epic.title;
+                epicSelect.appendChild(option);
+            });
+            document.getElementById("epicContainer").style.display = "block";
+        }
+
+        async function loadFeatures(projectId, epicId) {
+            const features = await fetchData(`/api/features/${projectId}/${epicId}`);
+            const featureSelect = document.getElementById("featureSelect");
+            featureSelect.innerHTML = '<option value="">Select a Feature</option>';
+            features.forEach(feature => {
+                const option = document.createElement("option");
+                option.value = feature.id;
+                option.textContent = feature.title;
+                featureSelect.appendChild(option);
+            });
+            document.getElementById("featureContainer").style.display = "block";
+        }
+
+        async function loadUserStories(projectId, featureId) {
+            const userStories = await fetchData(`/api/user_stories/${projectId}/${featureId}`);
+            const userStoriesContainer = document.getElementById("userStoriesContainer");
+            userStoriesContainer.innerHTML = "";
+            userStories.forEach(story => {
+                const div = document.createElement("div");
+                div.textContent = `${story.title} (ID: ${story.id})`;
+                userStoriesContainer.appendChild(div);
+            });
+            document.getElementById("userStoriesSection").style.display = "block";
+        }
+
+        document.addEventListener("DOMContentLoaded", () => {
+            loadProjects();
+
+            document.getElementById("projectSelect").addEventListener("change", (e) => {
+                const projectId = e.target.value;
+                if (projectId) {
+                    loadEpics(projectId);
+                }
+            });
+
+            document.getElementById("epicSelect").addEventListener("change", (e) => {
+                const epicId = e.target.value;
+                const projectId = document.getElementById("projectSelect").value;
+                if (epicId) {
+                    loadFeatures(projectId, epicId);
+                }
+            });
+
+            document.getElementById("featureSelect").addEventListener("change", (e) => {
+                const featureId = e.target.value;
+                const projectId = document.getElementById("projectSelect").value;
+                if (featureId) {
+                    loadUserStories(projectId, featureId);
+                }
+            });
+        });
+    </script>
+</head>
+<body>
+    <h1>Azure Work Items</h1>
+
+    <div>
+        <label for="projectSelect">Projects:</label>
+        <select id="projectSelect"></select>
+    </div>
+
+    <div id="epicContainer" style="display: none;">
+        <label for="epicSelect">Epics:</label>
+        <select id="epicSelect"></select>
+    </div>
+
+    <div id="featureContainer" style="display: none;">
+        <label for="featureSelect">Features:</label>
+        <select id="featureSelect"></select>
+    </div>
+
+    <div id="userStoriesSection" style="display: none;">
+        <h2>User Stories:</h2>
+        <div id="userStoriesContainer"></div>
+    </div>
+</body>
+</html>

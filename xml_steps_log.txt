@@ -1,0 +1,16 @@
+2025-05-27 17:44:11,068 - WARNING -  * Debugger is active!
+2025-05-27 17:44:11,073 - INFO -  * Debugger PIN: 103-436-021
+2025-05-27 17:45:00,307 - INFO - 127.0.0.1 - - [27/May/2025 17:45:00] "GET / HTTP/1.1" 200 -
+2025-05-27 17:45:00,348 - INFO - 127.0.0.1 - - [27/May/2025 17:45:00] "[33mGET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1[0m" 404 -
+2025-05-27 17:45:03,655 - INFO -  * Detected change in 'C:\\Users\\hmohamed\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\flask\\app.py', reloading
+2025-05-27 17:45:03,658 - INFO - 127.0.0.1 - - [27/May/2025 17:45:03] "[35m[1mPOST / HTTP/1.1[0m" 500 -
+2025-05-27 17:45:03,696 - INFO - 127.0.0.1 - - [27/May/2025 17:45:03] "[33mGET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1[0m" 404 -
+2025-05-27 17:45:03,760 - INFO - 127.0.0.1 - - [27/May/2025 17:45:03] "[36mGET /?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+2025-05-27 17:45:03,760 - INFO - 127.0.0.1 - - [27/May/2025 17:45:03] "[36mGET /?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+2025-05-27 17:45:03,851 - INFO - 127.0.0.1 - - [27/May/2025 17:45:03] "GET /?__debugger__=yes&cmd=resource&f=console.png&s=3wCfkuGro4NOvPyZhAwR HTTP/1.1" 200 -
+2025-05-27 17:45:04,141 - INFO - 127.0.0.1 - - [27/May/2025 17:45:04] "[36mGET /?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+2025-05-27 17:45:05,749 - WARNING -  * Debugger is active!
+2025-05-27 17:45:05,754 - INFO -  * Debugger PIN: 103-436-021
+2025-05-27 17:45:25,913 - INFO -  * Detected change in 'D:\\azure_testcase_generator\\app.py', reloading
+2025-05-27 17:45:25,917 - INFO -  * Detected change in 'D:\\azure_testcase_generator\\app.py', reloading
+2025-05-27 17:45:25,917 - INFO -  * Detected change in 'D:\\azure_testcase_generator\\app.py', reloading

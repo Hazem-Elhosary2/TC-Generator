@@ -1,0 +1,27 @@
+2025-05-27 17:48:42,074 WARNING:  * Debugger is active!
+2025-05-27 17:48:42,079 INFO:  * Debugger PIN: 103-436-021
+2025-05-27 17:48:44,692 DEBUG: Starting new HTTPS connection (1): azure.2p.com.sa:443
+2025-05-27 17:48:45,231 DEBUG: https://azure.2p.com.sa:443 "GET /Projects//MOHU/_apis/wit/workitems/60973?$expand=relations&api-version=6.0 HTTP/11" 200 2522
+2025-05-27 17:48:45,233 DEBUG: Starting new HTTPS connection (1): azure.2p.com.sa:443
+2025-05-27 17:48:45,783 DEBUG: https://azure.2p.com.sa:443 "GET /Projects//MOHU/_apis/wit/workitems/60733?api-version=6.0 HTTP/11" 200 1848
+2025-05-27 17:48:45,791 INFO: 127.0.0.1 - - [27/May/2025 17:48:45] "POST / HTTP/1.1" 200 -
+2025-05-27 17:48:45,833 INFO: 127.0.0.1 - - [27/May/2025 17:48:45] "[33mGET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1[0m" 404 -
+2025-05-27 17:48:52,412 DEBUG: Starting new HTTPS connection (1): azure.2p.com.sa:443
+2025-05-27 17:48:52,966 DEBUG: https://azure.2p.com.sa:443 "GET /Projects//MOHU/_apis/wit/workitems/60973?$expand=relations&api-version=6.0 HTTP/11" 200 2522
+2025-05-27 17:48:52,968 DEBUG: Starting new HTTPS connection (1): azure.2p.com.sa:443
+2025-05-27 17:48:53,483 DEBUG: https://azure.2p.com.sa:443 "GET /Projects//MOHU/_apis/wit/workitems/60733?api-version=6.0 HTTP/11" 200 1848
+2025-05-27 17:48:53,498 INFO: 127.0.0.1 - - [27/May/2025 17:48:53] "[35m[1mPOST /generate HTTP/1.1[0m" 500 -
+2025-05-27 17:48:53,562 INFO: 127.0.0.1 - - [27/May/2025 17:48:53] "[33mGET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1[0m" 404 -
+2025-05-27 17:48:53,628 INFO: 127.0.0.1 - - [27/May/2025 17:48:53] "[36mGET /generate?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+2025-05-27 17:48:53,636 INFO: 127.0.0.1 - - [27/May/2025 17:48:53] "[36mGET /generate?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+2025-05-27 17:48:53,741 INFO: 127.0.0.1 - - [27/May/2025 17:48:53] "GET /generate?__debugger__=yes&cmd=resource&f=console.png&s=Pgw4HW7EykGqlXW1Gvst HTTP/1.1" 200 -
+2025-05-27 17:49:05,815 INFO:  * Detected change in 'C:\\Users\\hmohamed\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\pandas\\core\\generic.py', reloading
+2025-05-27 17:49:07,805 WARNING:  * Debugger is active!
+2025-05-27 17:49:07,812 INFO:  * Debugger PIN: 103-436-021
+2025-05-27 17:49:47,202 INFO:  * Detected change in 'C:\\Users\\hmohamed\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\flask\\globals.py', reloading
+2025-05-27 17:49:47,203 INFO:  * Detected change in 'C:\\Users\\hmohamed\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\werkzeug\\wrappers\\request.py', reloading
+2025-05-27 17:49:47,209 INFO:  * Detected change in 'C:\\Users\\hmohamed\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\werkzeug\\sansio\\request.py', reloading
+2025-05-27 17:49:47,214 INFO:  * Detected change in 'C:\\Users\\hmohamed\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\werkzeug\\utils.py', reloading
+2025-05-27 17:49:47,231 INFO:  * Detected change in 'C:\\Users\\hmohamed\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\werkzeug\\_internal.py', reloading
+2025-05-27 17:49:47,235 INFO:  * Detected change in 'C:\\Users\\hmohamed\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\werkzeug\\datastructures\\structures.py', reloading
+2025-05-27 17:49:47,245 INFO:  * Detected change in 'C:\\Users\\hmohamed\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\werkzeug\\datastructures\\mixins.py', reloading
